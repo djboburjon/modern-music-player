@@ -17,20 +17,46 @@ body {
 
 .player {
   width: 390px;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin: 10px auto;
   padding: 40px 30px;
   text-align: center;
   background-color: #ffffff;
   transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 body.active .player {
   background-color: #030e35;
 }
 
+.playlist-right {
+  cursor: pointer;
+}
+
+.list {
+  position: absolute;
+  top: 80px;
+  right: -400px;
+  background-color: #000;
+  color: #fff;
+  z-index: 7;
+  text-align: left;
+  transition: all 0.5s ease;
+}
+
+.list h3 {
+  padding: 10px 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.list.activeList {
+  right: 0px;
+}
+
 .playlist {
-  margin-bottom: 45px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +68,7 @@ body.active .playlist h3 {
 
 .main_img {
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   border-radius: 50%;
   width: 250px;
   height: 250px;
@@ -57,7 +83,7 @@ body.active .song_title {
 }
 
 .artist_title {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: #0b40ff;
   font-size: 16px;
 }
@@ -69,11 +95,20 @@ body.active .song_title {
 #song-slider {
   margin-bottom: 10px;
   width: 100%;
-  height: 2px;
+  height: 3px;
+  background-color: gray;
+  position: relative;
+  cursor: pointer;
+}
+
+.song-slider_move {
+  position: absolute;
+  height: 3px;
+  background-color: blue;
 }
 
 .times {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -91,7 +126,7 @@ body.active .times {
 }
 
 .loop {
-  margin-bottom: 72px;
+  margin-bottom: 30px;
   padding: 0 12px;
   display: flex;
   justify-content: space-between;
@@ -116,4 +151,22 @@ body.active .times {
 }
 #volume-slider {
   width: 100%;
+}
+
+.music_img {
+  animation: playing 5s linear infinite;
+  animation-play-state: paused;
+}
+
+.music_img.active {
+  animation-play-state: running;
+}
+
+@keyframes playing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
