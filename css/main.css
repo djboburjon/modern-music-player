@@ -18,9 +18,10 @@ body {
 .player {
   width: 390px;
   margin: 10px auto;
-  padding: 40px 30px;
+  padding: 20px 30px;
   text-align: center;
   background-color: #ffffff;
+  border-radius: 10px;
   transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
