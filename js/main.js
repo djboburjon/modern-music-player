@@ -54,20 +54,20 @@ loadMusic(index)
 const playMusic = () => {
   audio.play()
   music_img.classList.add("active")
+  play_btn.setAttribute("src", "./images/pause-btn.png")
 }
 
 const pauseMusic = () => {
   audio.pause()
   music_img.classList.remove("active")
+  play_btn.setAttribute("src", "./images/play.png")
 }
 play_btn.addEventListener("click", () => {
   if (music_img.classList.contains("active")) {
     pauseMusic()
-    play_btn.setAttribute("src", "./images/play.png")
   } else {
 
     playMusic()
-    play_btn.setAttribute("src", "./images/pause-btn.png")
   }
 })
 
@@ -152,4 +152,20 @@ repeat.addEventListener("click", () => {
 
 mode.addEventListener("click", () => {
   body.classList.toggle("active") 
+})
+
+
+document.addEventListener("keydown", (e) => {
+  const key = e.key
+  if(e.keyCode == 39) {
+    nextMusic()
+  }else if(e.keyCode == 37) {
+    prevMusic()
+  }else if(e.keyCode == 32 && play_btn.getAttribute("src") === "./images/play.png"){
+    playMusic()
+  }else if (e.keyCode == 32) {
+    pauseMusic()
+  }else if (e.ctrlKey == true && e.key == "m") {
+    list.classList.toggle("activeList")
+  }
 })
