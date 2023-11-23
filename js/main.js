@@ -167,5 +167,11 @@ document.addEventListener("keydown", (e) => {
     pauseMusic()
   }else if (e.ctrlKey == true && e.key == "m") {
     list.classList.toggle("activeList")
+  }else if (e.keyCode == 38) {
+    volumeSlider.value ++
+    setVolume()
+  }else if (e.keyCode == 40) {
+    volumeSlider.value --
+    setVolume()
   }
 })
